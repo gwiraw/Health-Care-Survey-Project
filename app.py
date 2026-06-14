@@ -52,13 +52,18 @@ def submit():
 # ==========================
 @app.route('/surveys')
 def surveys():
+    try:
+        records = list(collection.find())
 
-    records = list(collection.find())
+        print("Records found:", len(records))
 
-    return render_template(
-'surveys.html',
-records=records
+        return render_template(
+    'surveys.html',
+    records=records
 )
+
+    except Exception as e:
+        return f"ERROR: {str(e)}"
 
 # ==========================
 # EDIT SURVEY
@@ -110,7 +115,8 @@ def delete(id):
     )
 
     return redirect('/surveys')
-
+# Elastic Beanstalk compatibility
+application = app
 # ==========================
 # RUN APP
 # ==========================
