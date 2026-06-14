@@ -300,7 +300,7 @@ http://127.0.0.1:5000
 
 ---
 
-# Generating Sample Data
+# Generating Sample Data((To boost the sample for analysis after manual entry))
 
 Generate 200 sample records:
 
